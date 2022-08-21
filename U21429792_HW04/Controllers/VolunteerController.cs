@@ -18,7 +18,7 @@ namespace U21429792_HW04.Controllers
 
         public ActionResult VolunteerPage()
         {
-            List<VolunteerViewModel> volunteers = GetData();
+            List<VolunteerViewModel> volunteers = GetData(VolunteerViewModel model);
             return View(volunteers);
         }
         public ActionResult DonatePage()
@@ -41,13 +41,13 @@ namespace U21429792_HW04.Controllers
             return View();
         }
 
-        private List<VolunteerViewModel> GetData()
+        private List<VolunteerViewModel> GetData(VolunteerViewModel model)
         {
             List<VolunteerViewModel> volunteers = new List<VolunteerViewModel>();
             VolunteerViewModel volunteer1 = new VolunteerViewModel("John", "Doe", "Afghanistan", "5");
             VolunteerViewModel volunteer2 = new VolunteerViewModel("Jane", "Doe", "Hungary", "6");
             VolunteerViewModel volunteer3 = new VolunteerViewModel("Peter", "Piper", "North Korea", "3");
-            VolunteerViewModel volunteer4 = new VolunteerViewModel($"Name", $"Surname", $"Area", $"Days");
+            VolunteerViewModel volunteer4 = new VolunteerViewModel($"{model.Name}", $"{model.Surname}", $"{model.Area}", $"{model.Days}");
             volunteers.Add(volunteer1);
             volunteers.Add(volunteer2);
             volunteers.Add(volunteer3);

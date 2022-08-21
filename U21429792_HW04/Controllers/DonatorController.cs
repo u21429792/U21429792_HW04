@@ -24,7 +24,7 @@ namespace U21429792_HW04.Controllers
         }
         public ActionResult DonatePage()
         {
-            List<DonatorViewModel> donators = GetData();
+            List<DonatorViewModel> donators = GetData(DonatorViewModel model);
             return View(donators);
         }
 
@@ -40,13 +40,13 @@ namespace U21429792_HW04.Controllers
 
             return View();
         }
-        private List<DonatorViewModel> GetData()
+        private List<DonatorViewModel> GetData(DonatorViewModel model)
         {
             List<DonatorViewModel> donators = new List<DonatorViewModel>();
             DonatorViewModel donator1 = new DonatorViewModel("John", "Doe", "Nepal", "5000");
             DonatorViewModel donator2 = new DonatorViewModel("Jane", "Doe", "Afghanistan", "6000");
             DonatorViewModel donator3 = new DonatorViewModel("Peter", "Piper", "Philippines", "3000");
-            DonatorViewModel donator4 = new DonatorViewModel($"Name", $"Surname", $"Area", $"Amount");
+            DonatorViewModel donator4 = new DonatorViewModel($"{model.Name}", $"{model.Surname}", $"{model.Area}", $"{model.Amount}");
             donators.Add(donator1);
             donators.Add(donator2);
             donators.Add(donator3);
