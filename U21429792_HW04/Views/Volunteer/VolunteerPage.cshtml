@@ -1,0 +1,51 @@
+﻿
+@model List<U21429792_HW04.ViewModels.VolunteerViewModel>
+
+<h2>Volunteer Page</h2>
+
+@using (Html.BeginForm("VolunteerPage", "VolunteerController", FormMethod.Post))
+{
+    <h2> Volunteer Details</h2>
+    <h3> Please fill in your information below: </h3>
+    <p>
+        <label for="name">First Name: </label>
+        <input type="text" name="name" id="Name"/>
+    </p>
+    <p>
+        <label for="surname">Last Name: </label>
+        <input type="text" name="surname" id="Surname" />
+    </p>
+    <p>
+        <label for="area">Area to help: </label>
+        <input type="text" name="area" id="Area"/>
+    </p>
+    <p>
+        <label for="days">Number of days you will be helping: </label>
+        <input type="text" name="days" id="Days"/>
+    </p>
+    <input type="submit" />
+}
+
+
+<p>
+
+
+</p>
+
+<table  class="table" border="2">
+    <tr>
+        <th> Name     </th>
+        <th> Surname     </th>
+        <th> Area helping in     </th>
+        <th> Days helping     </th>
+    </tr>
+    @foreach (var volunteer in Model)
+    {
+        <tr>
+            <td>@volunteer.Name</td>
+            <td>@volunteer.Surname</td>
+            <td>@volunteer.Area</td>
+            <td>@volunteer.Days</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,51 @@
+﻿@model List<U21429792_HW04.ViewModels.DonatorViewModel>
+
+    <h2>Donate Page</h2>
+
+@using (Html.BeginForm("DonatePage", "DonatorController", FormMethod.Post))
+    {
+        <h2> Donator Details</h2>
+        <h3> Please fill in your information below: </h3>
+        <p>
+            <label for="name">First Name: </label>
+            <input type="text" name="name" id="Name"/>
+        </p>
+        <p>
+            <label for="surname">Last Name: </label>
+            <input type="text" name="surname" id="Surname" />
+        </p>
+        <p>
+            <label for="area">Area to help: </label>
+            <input type="text" name="area" id="Area"/>
+        </p>
+        <p>
+            <label for="amount">Amount you will be donating: </label>
+            <input type="text" name="amount" id="Amount"/>
+        </p>
+        <input type="submit" />
+    }
+
+
+    <p>
+
+
+    </p>
+
+    <table class="table" border="2">
+        <tr>
+            <th> Name  &nbsp;   </th>
+            <th> Surname  &nbsp;   </th>
+            <th> Area helping in  &nbsp;   </th>
+            <th> Days helping  &nbsp;   </th>
+        </tr>
+        @foreach (var donator in Model)
+        {
+            <tr>
+                <td>@donator.Name</td>
+                <td>@donator.Surname</td>
+                <td>@donator.Area</td>
+                <td>@donator.Amount</td>
+            </tr>
+        }
+    </table>
+
